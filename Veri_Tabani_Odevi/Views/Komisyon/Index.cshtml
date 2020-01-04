@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.Komisyon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Komisyon Listesi</h2>
+
+<p>
+    @Html.ActionLink("Komisyon ve Öğrenci Bilgisi Ekle", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div>
+    @Html.ActionLink("PDF'e dönüştür", "GeneratePdfRotativa", "ExportPdfKomisyonlar", null, new { @class = "btn btn-primary" })
+</div>
+<hr />
+@if (TempData["Komisyon"] != null)
+{
+    var komisyon = (Veri_Tabani_Odevi.Models.Komisyon)TempData["Komisyon"];
+    <div class="alert alert-primary" role="alert">
+        <strong>
+            <span class="glyphicon glyphicon-ok"></span>
+            @komisyon.OgrenciAdi
+                  </strong> Kayıt Edildi...
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KomisyonUye1Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KomisyonUye1Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KomisyonUye2Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KomisyonUye2Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MulakatNo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciAdi)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.OgrenciSoyadi)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.KomisyonUye1Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KomisyonUye1Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KomisyonUye2Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KomisyonUye2Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MulakatNo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.KomisyonId }, new { @class = "btn btn-success btn-xs" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.KomisyonId }, new { @class = "btn btn-primary btn-xs" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.KomisyonId }, new { @class = "btn btn-danger btn-xs" })
+
+            </td>
+        </tr>
+    }
+
+
+</table>

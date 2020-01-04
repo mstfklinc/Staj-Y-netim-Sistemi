@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.Staj>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Staj Listesi</h2>
+<hr />
+<p>
+    @Html.ActionLink("Yeni Staj Ekle", "Create",null,new {@class="btn btn-primary"})
+</p>
+
+<div>
+    @Html.ActionLink("PDF'e dönüştür", "GeneratePdfRotativa", "ExportPdfStajlar", null, new { @class = "btn btn-primary" })
+</div>
+
+@if (TempData["Staj"]!=null)
+{
+    var staj = (Veri_Tabani_Odevi.Models.Staj)TempData["Staj"];
+    <div class="alert alert-primary" role="alert">
+        <strong>
+        <span class="glyphicon glyphicon-ok"></span>
+            @staj.StajKonusu
+        </strong> Kayıt Edildi...
+    </div>
+}
+<hr />
+@* table-bordered = kenarlıkları belirtir *@
+@* table-hover = satırların üzerine gelindiğinde arka plan değişir *@
+@* table-striped = her kolonun farklı bir kolon olduğunu gösterir*@
+<table class="table table table-bordered table-hover table-striped">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Category.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KurumAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.YapilanSehir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StajKonusu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaslamaTarihi)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.BitisTarihi)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YapılanGünSayisi)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Onay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnaSayfa)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.KategoriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KurumAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=>item.YapilanSehir)
+        </td>
+        <td>
+            @if (item.OgrenciSinif != 1 && item.StajKonusu != "AR-GE")
+            {
+                
+                   <div class="alert alert-danger" role="alert">
+                        <strong>
+                            <span class="glyphicon gylphicon-ok"></span>
+                            
+                        </strong> Konusu AR-GE harici stajlar tek seferde 45 günden fazla yapılamaz!!!
+                    </div>    
+            }
+            @*@Html.DisplayFor(modelItem => item.StajKonusu)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaslamaTarihi)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.BitisTarihi)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+        </td>
+        <td>
+
+            @if (item.YapılanGünSayisi < 15)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <strong>
+                        <span class="glyphicon gylphicon-ok"></span>
+                        @*@item.YapılanGünSayisi*@
+                    </strong> Yapılan gün sayısı 15'ten az olamaz...
+                </div>
+            }
+            @*else
+            {
+                @Html.DisplayFor(modelItem => item.YapılanGünSayisi)
+            }*@
+        </td>
+        <td>
+            @if (item.Onay)
+            {
+                <label class="label label-success">Onaylı</label>
+            }
+            else
+            {
+                <label class="label label-danger">Onay Bekliyor</label>
+            }
+           
+        </td>
+        <td>
+            @if (item.AnaSayfa)
+            {
+                <label class="label label-success">Anasayfada</label>
+            }
+            else
+            {
+                <label class="label label-danger">Anasayfada Değil</label>
+            }
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StajId }, new { @class = "btn btn-warning btn-xs" })
+            @Html.ActionLink("Details", "Details","Staj", new { id = item.StajId }, new { @class = "btn btn-primary btn-xs" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.StajId }, new { @class = "btn btn-danger btn-xs" })
+           
+        </td>
+    </tr>
+}
+
+</table>

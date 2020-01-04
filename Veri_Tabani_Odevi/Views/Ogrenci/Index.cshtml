@@ -1,0 +1,230 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.Ogrenci>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Öğrenci Listesi</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Öğrenci Ekle", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div>
+    @Html.ActionLink("PDF'e dönüştür", "GeneratePdfRotativa", "ExportPdfOgrenciler", null, new { @class = "btn btn-primary" })
+</div>
+<hr />
+@if (TempData["Ogrenci"] != null)
+{
+    var ogrenci = (Veri_Tabani_Odevi.Models.Ogrenci)TempData["Ogrenci"];
+    <div class="alert alert-danger" role="alert">
+        <strong>
+            <span class="glyphicon glyphicon-ok"></span>
+            @ogrenci.OgrenciAdi
+        </strong> Kayıt Edildi...
+    </div>
+}
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSinif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciOgretim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DevamNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CabaVeCalismaNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsıVaktindeBitirmeNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmirineKarsiDavranisNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsArkadaslarinaKarsiDavranisNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DuzenNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SunumNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MulakatNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YapılanGunSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HesaplananNotKatsayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KabulEdilenGunSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KalanGünSayisi)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StajınTamamlanmaDurumu)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciSinif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciOgretim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevamNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CabaVeCalismaNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsıVaktindeBitirmeNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmirineKarsiDavranisNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsArkadaslarinaKarsiDavranisNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjeNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuzenNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SunumNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IcerikNotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MulakatNotu)
+            </td>
+
+            <td>
+                @*@Html.DisplayFor(modelItem => item.YapılanGunSayisi)*@
+                @if (item.OgrenciSinif <= 2 && item.YapılanGunSayisi>25)
+                {                 
+                        <div class="alert alert-danger" role="alert">
+                            <strong>
+                                <span class="glyphicon gylphicon-ok"></span>
+                                @*@item.YapılanGünSayisi*@
+                            </strong> 2. Sınıf bir öğrenci 25 günden fazla staj yapamaz...
+                        </div>                   
+                }
+                
+                
+            </td>
+
+            <td>
+                @((item.DevamNotu * 4 / 100) +
+                                    (item.CabaVeCalismaNotu * 4 / 100) +
+                                    (item.CabaVeCalismaNotu * 4 / 100) +
+                                    (item.IsıVaktindeBitirmeNotu * 4 / 100) +
+                                    (item.AmirineKarsiDavranisNotu * 4 / 100) +
+                                    (item.IsArkadaslarinaKarsiDavranisNotu * 4 / 100) +
+                                    (item.ProjeNotu * 15 / 100) +
+                                    (item.DuzenNotu * 5 / 100) +
+                                    (item.IcerikNotu * 15 / 100) +
+                                    (item.MulakatNotu * 40 / 100))
+
+            </td>
+
+            <td>
+                @(((item.DevamNotu * 4 / 100) +
+                                            (item.CabaVeCalismaNotu * 4 / 100) +
+                                            (item.CabaVeCalismaNotu * 4 / 100) +
+                                            (item.IsıVaktindeBitirmeNotu * 4 / 100) +
+                                            (item.AmirineKarsiDavranisNotu * 4 / 100) +
+                                            (item.IsArkadaslarinaKarsiDavranisNotu * 4 / 100) +
+                                            (item.ProjeNotu * 15 / 100) +
+                                            (item.DuzenNotu * 5 / 100) +
+                                            (item.IcerikNotu * 15 / 100) +
+                                            (item.MulakatNotu * 40 / 100)) * item.YapılanGunSayisi / 100)
+            </td>
+
+            <td>
+                @(60 - (((item.DevamNotu * 4 / 100) +
+                                                    (item.CabaVeCalismaNotu * 4 / 100) +
+                                                    (item.CabaVeCalismaNotu * 4 / 100) +
+                                                    (item.IsıVaktindeBitirmeNotu * 4 / 100) +
+                                                    (item.AmirineKarsiDavranisNotu * 4 / 100) +
+                                                    (item.IsArkadaslarinaKarsiDavranisNotu * 4 / 100) +
+                                                    (item.ProjeNotu * 15 / 100) +
+                                                    (item.DuzenNotu * 5 / 100) +
+                                                    (item.IcerikNotu * 15 / 100) +
+                                                    (item.MulakatNotu * 40 / 100)) * item.YapılanGunSayisi / 100))
+            </td>
+
+            <td>
+                @if (item.KabulEdilenGunSayisi >= 57)
+                {
+                    <label class="label label-success">Staj tamamlandı</label>
+                }
+                else
+                {
+                    <label class="label label-danger ">Staj tamamlanmadı</label>
+                }
+            </td>
+
+
+            @* yeni bir sutuna yazıyorum hesaplayıp sen ayarı verirsin *@
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OgrenciId }, new { @class = "btn btn-success btn-xs" })
+                @Html.ActionLink("Details", "Details", "Staj", new { id = item.OgrenciId }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.OgrenciId }, new { @class = "btn btn-danger btn-xs" })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+@section SagKolon
+    {
+
+    @Html.Partial("Search")
+}

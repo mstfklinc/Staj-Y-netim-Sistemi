@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.Mulakat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mulakat Listesi</h2>
+
+<p>
+    @Html.ActionLink("Mulakat Ekle", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div>
+    @Html.ActionLink("PDF'e dönüştür", "GeneratePdfRotativa", "ExportPdfMulakatlar", null, new { @class = "btn btn-primary" })
+</div>
+<hr />
+
+@if (TempData["Mulakat"] != null)
+{
+    var mulakat = (Veri_Tabani_Odevi.Models.Mulakat)TempData["Mulakat"];
+    <div class="alert alert-primary" role="alert">
+        <strong>
+            <span class="glyphicon glyphicon-ok"></span>
+            @mulakat.MulakatTarihi
+        </strong> Kayıt Edildi...
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSinif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciOgretim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MulakatTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MulakatSaati)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MulakatYeri)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciSinif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenciOgretim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MulakatTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MulakatSaati)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MulakatYeri)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MulakatId }, new { @class = "btn btn-success btn-xs" })
+                @Html.ActionLink("Details", "Details", "Staj", new { id = item.MulakatId }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.MulakatId }, new { @class = "btn btn-danger btn-xs" })
+
+            </td>
+        </tr>
+    }
+
+
+</table>

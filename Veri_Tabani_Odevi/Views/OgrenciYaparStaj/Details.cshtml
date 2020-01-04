@@ -1,0 +1,34 @@
+﻿@model Veri_Tabani_Odevi.Models.OgrenciYaparStaj
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OgrenciYaparStaj</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ogrenci.OgrenciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ogrenci.OgrenciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Staj.KurumAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Staj.KurumAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OgrenciYaparStaj_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

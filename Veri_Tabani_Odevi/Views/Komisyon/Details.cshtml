@@ -1,0 +1,83 @@
+﻿@model Veri_Tabani_Odevi.Models.Komisyon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Komisyon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciSoyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KomisyonUye1Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KomisyonUye1Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KomisyonUye1Soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KomisyonUye1Soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KomisyonUye2Ad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KomisyonUye2Ad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KomisyonUye2Soyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KomisyonUye2Soyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MulakatNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MulakatNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KomisyonId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

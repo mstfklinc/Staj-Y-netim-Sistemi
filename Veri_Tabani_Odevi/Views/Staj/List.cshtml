@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.StajModel>
+@*buradaki stajModel sınıfını senden controlden geri dönmeni bekliyor. sen buraya Staj yazarsan olmaz.*@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Staj Listesi</h2>
+
+@Html.Partial("StajListesi", Model)
+
+
+@section SagKolon
+{
+    @Html.Partial("Search")
+    @{Html.RenderAction("KategoriListesi", "Category");}
+}

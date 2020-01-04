@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.StajModel>
+
+
+@if (Model.Count() == 0)
+{
+    <div class="alert alert-warning">
+       <h3>Kayıt Bulunamadı!!</h3>
+    </div>
+}
+else
+{
+    foreach (var staj in Model)
+    {
+    <div class="staj">
+        <h3 class="page-header">
+            @staj.StajKonusu
+
+        </h3>
+        <h3 class="page-header">
+            @staj.KurumAdi
+        </h3>
+
+        <hr />
+        <p>
+            <span class="glyphicon gylphicon-time"></span>
+            @staj.EklenmeTarihi
+        </p>
+        <hr />
+        @*<img src="@staj.StajResim"/>*@
+
+        <img class="img-responsive" src="http://placehold.it/900x300" alt="@staj.StajResim" />
+        <hr />
+        <p>
+            @staj.Icerik
+        </p>
+        @Html.ActionLink("Daha Fazla...", "Details", "Staj", new { id = staj.StajId }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Stajı Güncelle", "Edit", "Staj", new { id = staj.StajId }, new { @class = "btn btn-primary" })
+
+        <hr />
+        <hr />
+        <hr />
+    </div>
+    }
+}

@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.Staj>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.KategoriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KurumAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YapilanSehir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaslamaTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StajResim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StajKonusu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BitisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YapılanGünSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnaSayfa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSinif)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.KategoriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KurumAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YapilanSehir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaslamaTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StajResim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Icerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StajKonusu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BitisTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YapılanGünSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Onay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnaSayfa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciSoyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciSinif)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.StajId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StajId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StajId })
+            
+        </td>
+    </tr>
+}
+
+</table>

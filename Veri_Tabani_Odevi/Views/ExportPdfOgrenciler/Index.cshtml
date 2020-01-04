@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Veri_Tabani_Odevi.Models.Ogrenci>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciOgretim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciSinif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrenciResim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DevamNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CabaVeCalismaNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsıVaktindeBitirmeNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmirineKarsiDavranisNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsArkadaslarinaKarsiDavranisNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjeNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DuzenNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SunumNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcerikNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MulakatNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HesaplananNotKatsayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KabulEdilenGunSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KalanGünSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StajınTamamlanmaDurumu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YapılanGunSayisi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciSoyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciOgretim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciSinif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OgrenciResim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DevamNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CabaVeCalismaNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsıVaktindeBitirmeNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmirineKarsiDavranisNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsArkadaslarinaKarsiDavranisNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjeNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DuzenNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SunumNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcerikNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MulakatNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HesaplananNotKatsayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KabulEdilenGunSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KalanGünSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StajınTamamlanmaDurumu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YapılanGunSayisi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.OgrenciId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.OgrenciId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OgrenciId })
+            
+        </td>
+    </tr>
+}
+
+</table>

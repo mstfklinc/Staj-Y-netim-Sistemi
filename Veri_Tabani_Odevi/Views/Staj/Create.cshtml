@@ -1,0 +1,95 @@
+﻿@model Veri_Tabani_Odevi.Models.Staj
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Staj Ekle</h2>
+<hr />
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    @ViewBag.Uyari  
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.KurumAdi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.KurumAdi, new { @class = "form-control",@required="" })
+            @Html.ValidationMessageFor(model => model.KurumAdi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.YapilanSehir, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.YapilanSehir, new { @class = "form-control", @required = "" })
+            @Html.ValidationMessageFor(model => model.YapilanSehir, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BaslamaTarihi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.BaslamaTarihi, new { @class = "form-control", @required = "" })
+            @Html.ValidationMessageFor(model => model.BaslamaTarihi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BitisTarihi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.BitisTarihi, new { @class = "form-control", @required = "" })
+            @Html.ValidationMessageFor(model => model.BitisTarihi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StajKonusu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.StajKonusu, new { @class = "form-control", @required = "" })
+            @Html.ValidationMessageFor(model => model.StajKonusu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.YapılanGünSayisi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.YapılanGünSayisi, new { @class = "form-control", @required = "" })
+            @Html.ValidationMessageFor(model => model.YapılanGünSayisi, "", new { @class = "text-danger" })
+            @Html.ValidationMessage("YapılanGünSayisi")
+
+           
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId, "CategoryId", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CategoryId", null, "Kategori Seçiniz", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-primary"})
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

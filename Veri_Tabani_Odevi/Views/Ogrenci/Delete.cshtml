@@ -1,0 +1,144 @@
+﻿@model Veri_Tabani_Odevi.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Ogrenci</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciSoyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciSinif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciSinif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrenciOgretim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrenciOgretim)
+        </dd>     
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DevamNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DevamNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CabaVeCalismaNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CabaVeCalismaNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsıVaktindeBitirmeNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsıVaktindeBitirmeNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmirineKarsiDavranisNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmirineKarsiDavranisNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsArkadaslarinaKarsiDavranisNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsArkadaslarinaKarsiDavranisNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjeNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjeNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DuzenNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DuzenNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SunumNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SunumNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcerikNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcerikNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MulakatNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MulakatNotu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,54 @@
+﻿@model List<Veri_Tabani_Odevi.Models.CategoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kategori Listesi</h2>
+<hr />
+
+<p>
+    @Html.ActionLink("Kategori Ekle", "Create",null,new {@class="btn btn-primary"})
+</p>
+
+@if(TempData["Kategori"]!=null) //Burası TempData'nın içerisinde bir veri olduğu durumlarda çalışlır.Diğer durumlarda çalışmaz.
+{
+    var kategori = (Veri_Tabani_Odevi.Models.CategoryModel)TempData["Kategori"]; 
+    <div class="alert alert-success">
+        <span class="glyphicon glyphicon-ok"></span>
+        <b>@kategori.KategoriAdi</b> Kayıt Edildi...
+    </div>
+}
+<hr />
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <th>
+            Kategori Adı
+        </th>
+        <th>
+            Staj Sayısı
+
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriAdi)
+            @* @item.KategoriAdi Olarak da yazılabilir. *@
+        </td>
+        <td>
+            @Html.DisplayFor(modelIem=>item.StajSayisi)
+            @* @item.SrajSayisi olarak da yazılabilir. *@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryModelId },new {@class="btn btn-warning btn-xs"}) 
+            @Html.ActionLink("Details", "Details","Staj",new { id=item.CategoryModelId },new {@class="btn btn-primary btn-xs"}) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryModelId },new {@class="btn btn-danger btn-xs"})
+        </td>
+    </tr>
+}
+
+</table>

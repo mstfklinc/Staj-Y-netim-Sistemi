@@ -1,0 +1,34 @@
+﻿@model Veri_Tabani_Odevi.Models.OgrenciGirerMulakat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OgrenciGirerMulakat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mulakat.MulakatYeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mulakat.MulakatYeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ogrenci.OgrenciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ogrenci.OgrenciAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OgrenciGirerMülakatId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

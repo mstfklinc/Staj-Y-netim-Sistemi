@@ -1,0 +1,163 @@
+﻿@model Veri_Tabani_Odevi.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Öğrenci Ekle</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrenciAdi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrenciAdi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.OgrenciAdi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrenciSoyadi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrenciSoyadi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.OgrenciSoyadi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrenciNo, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrenciNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.OgrenciNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrenciSinif, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrenciSinif, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.OgrenciSinif, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrenciOgretim, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrenciOgretim, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.OgrenciOgretim, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DevamNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DevamNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DevamNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CabaVeCalismaNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.CabaVeCalismaNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CabaVeCalismaNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsıVaktindeBitirmeNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.IsıVaktindeBitirmeNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IsıVaktindeBitirmeNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AmirineKarsiDavranisNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.AmirineKarsiDavranisNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AmirineKarsiDavranisNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsArkadaslarinaKarsiDavranisNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.IsArkadaslarinaKarsiDavranisNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IsArkadaslarinaKarsiDavranisNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProjeNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ProjeNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ProjeNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DuzenNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DuzenNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DuzenNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SunumNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.SunumNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SunumNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IcerikNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.IcerikNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IcerikNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MulakatNotu, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.MulakatNotu, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MulakatNotu, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.YapılanGunSayisi, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.YapılanGunSayisi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.YapılanGunSayisi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index",null,new {@class="btn btn-primary"})
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
